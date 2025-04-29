@@ -78,3 +78,31 @@
     padding: 0.125rem 0.5rem;
     border-radius: 999px;
 }
+
+.tasksList {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap; 
+
+    margin: 1.5rem auto;
+    gap: 1rem;
+    max-width: 50rem;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    width: calc(33% - 1rem);
+    min-width: 15.625rem;
+    height: 8rem;
+    background-color: var(--grey-500);
+    margin: 0.75rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--grey-400);
+    color: var(--grey-100);
+    font-size: 14px;
+    box-sizing: border-box;
+}
