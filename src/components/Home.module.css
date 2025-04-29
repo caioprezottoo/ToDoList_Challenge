@@ -1,20 +1,80 @@
-.header_container {
+.headerContainer {
     background-color: var(--grey-700);
     height: 12.5rem;
     width: 100%;
-    margin: 0 0 1rem 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.body_input {
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -2rem 0 0 0;
+
+
+    gap: 0.5rem;
+}
+
+.taskInput {
     color: var(--grey-300);
     font-size: 16px;
-    line-height: 140%;
-
     border-radius: 8px;
     background-color: var(--grey-500);
     width: 39.875rem;
+    height: 3.375rem;
+    padding: 0 1rem;
+    border: 1px solid var(--grey-700);
+}
+
+.addButton {
+    color: var(--grey-100);
+    font-size: 14px;
+    background-color: var(--blue-dark);
+    border-radius: 8px;
+    width: 5.625rem;
+    height: 3.25rem;
+    padding: 0 1rem;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    transition: 0.3s;
+}
+
+.addButton:hover {
+    transform: scale(1.04);
+}
+
+.pSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-top: 4rem;
+    font-size: 14px;
+}
+
+.firstP {
+    color: var(--blue);
+}
+
+.secondP {
+    color: var(--purple);
+}
+
+.firstP span,
+.secondP span {
+    color: var(--grey-200);
+    background-color: var(--grey-400);
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
 }

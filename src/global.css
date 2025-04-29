@@ -23,5 +23,6 @@
 body {
   background-color: var(--grey-600);
   font-family: var(--font);
+  line-height: 140%;
 }
 

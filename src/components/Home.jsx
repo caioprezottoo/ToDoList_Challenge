@@ -2,10 +2,13 @@ import React from 'react'
 import logo from './assets/logo.png'
 import styles from './Home.module.css'
 
+import { PlusCircle } from "@phosphor-icons/react";
+
 export default function Home() {
   return (
     <div>
-      <header className={styles.header_container}>
+      {/* Header with logo */}
+      <header className={styles.headerContainer}>
         <img
           className={styles.logo}
           src={logo}
@@ -13,12 +16,31 @@ export default function Home() {
         />
       </header>
 
-      <div>
+      {/* Start of the body */}
+      <div className={styles.inputContainer}>
         <input
           type="text"
-          placeholder='Adicione uma nova tarefa'
-          className={styles.body_input}
+          placeholder='Add a new task'
+          className={styles.taskInput}
         />
+
+        <button className={styles.addButton}>
+          Add
+          <PlusCircle size={16} />
+        </button>
+      </div>
+
+      <div className={styles.tasksDisplay}>
+        <section className={styles.pSection}>
+          <p className={styles.firstP}>
+            All Tasks
+            <span>0</span>
+          </p>
+          <p className={styles.secondP}>
+            Done
+            <span>0</span>
+          </p>
+        </section>
       </div>
 
     </div>
