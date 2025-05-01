@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import logo from './assets/logo.png'
 import styles from './Home.module.css'
 
-import { PlusCircle } from "@phosphor-icons/react";
+import { PlusCircle, ClipboardText, Trash } from "@phosphor-icons/react";
 
 export default function Home() {
   // States
@@ -35,6 +35,12 @@ export default function Home() {
   // Count tasks completed
   const completedTasksCount = tasks.filter(tasks => tasks.isCompleted).length;
 
+  // Handle delete task
+  const handleDeleteTask = (taskId) => {
+    const updatedTasks = tasks.filter(task => task.id !== taskId);
+    setTasks(updatedTasks);
+  }
+
   return (
     <div>
       {/* Header with logo */}
@@ -65,7 +71,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Tasks Display */}
+      {/* All tasks and Done display */}
       <div>
         <section className={styles.pSection}>
           <p className={styles.firstP}>
@@ -79,10 +85,39 @@ export default function Home() {
         </section>
       </div>
 
+      {/* Tasks Display */}
       <div className={styles.tasksList}>
-        {tasks.map(task => (
-          <div key={task.id} className={styles.taskItem}>{task.content}</div>
-        ))}
+        {
+          tasks.length > 0 ? (
+            tasks.map(task => (
+              <div key={task.id} className={styles.taskItem}>
+                <div className={styles.taskContentInput}>
+                  {task.content}
+                  <input
+                    type="text"
+                    placeholder='Add a description...'
+                    className={styles.inputDescription}
+                  />
+                </div>
+                <div className={styles.inputAndTrash}>
+                  <input type="radio" />
+                  <button
+                    onClick={() => handleDeleteTask(task.id)}
+                    className={styles.deleteButton}
+                  >
+                    <Trash size={22} />
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className={styles.emptyState}>
+              <ClipboardText size={56} className={styles.emptyIcon} />
+              <p className={styles.emptyTextBold}>You don't have any tasks registered yet.</p>
+              <p>Create tasks and organize your to-do items</p>
+            </div>
+          )
+        }
       </div>
     </div>
   )

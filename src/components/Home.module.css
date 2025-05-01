@@ -58,7 +58,7 @@
     align-items: center;
     justify-content: space-evenly;
 
-    margin-top: 4rem;
+    margin: 4rem 0 2rem 0;
     font-size: 14px;
 }
 
@@ -84,7 +84,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 
     margin: 1.5rem auto;
     gap: 1rem;
@@ -93,7 +93,7 @@
 
 .taskItem {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     width: calc(33% - 1rem);
     min-width: 15.625rem;
     height: 8rem;
@@ -105,4 +105,63 @@
     color: var(--grey-100);
     font-size: 14px;
     box-sizing: border-box;
+}
+
+.taskContentInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputDescription {
+    color: var(--grey-300);
+    border-radius: 8px;
+    background-color: var(--grey-500);
+    border: 1px solid var(--grey-300);
+    height: 60%;
+    padding-left: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.inputAndTrash {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.deleteButton {
+    background-color: transparent;
+    border: none;
+    color: var(--grey-300);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.deleteButton:hover {
+    transform: scale(1.08);
+    color: var(--purple);
+}
+
+.emptyState {
+    color: var(--grey-300);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5.5rem 1.5rem;
+    width: 100%;
+    border-top: 1px solid var(--grey-400);
+    border-radius: 8px;
+}
+
+.emptyIcon {
+    opacity: 0.5;
+}
+
+.emptyTextBold {
+    font-weight: 800;
+    font-size: 16px;
+    margin-top: 1rem;
 }
