@@ -41,6 +41,16 @@ export default function Home() {
     setTasks(updatedTasks);
   }
 
+  // Handle task completed
+  const handleIsCompleted = (taskId) => {
+    const updatedTasks = tasks.map(task =>
+      task.id === taskId
+        ? { ...task, isCompleted: !task.isCompleted }
+        : task
+    );
+    setTasks(updatedTasks);
+  }
+
   return (
     <div>
       {/* Header with logo */}
@@ -90,17 +100,26 @@ export default function Home() {
         {
           tasks.length > 0 ? (
             tasks.map(task => (
-              <div key={task.id} className={styles.taskItem}>
+              <div key={task.id} className={task.isCompleted ? styles.isCompleted : styles.taskItem}>
                 <div className={styles.taskContentInput}>
                   {task.content}
-                  <input
-                    type="text"
-                    placeholder='Add a description...'
+                  <textarea
+                    placeholder="Add a description..."
                     className={styles.inputDescription}
-                  />
+                    readOnly={task.isCompleted}
+                  >
+                  </textarea>
                 </div>
                 <div className={styles.inputAndTrash}>
-                  <input type="radio" />
+                  <label className={styles.checkBox}>
+                    <input
+                      className={styles.ch1}
+                      type="checkbox"
+                      checked={task.isCompleted}
+                      onClick={() => handleIsCompleted(task.id)}
+                    />
+                    <div className={styles.transition}></div>
+                  </label>
                   <button
                     onClick={() => handleDeleteTask(task.id)}
                     className={styles.deleteButton}

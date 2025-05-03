@@ -1,5 +1,5 @@
 .headerContainer {
-    background-color: var(--grey-700);
+    background: var(--gradient-purple);
     height: 12.5rem;
     width: 100%;
 
@@ -89,13 +89,14 @@
     margin: 1.5rem auto;
     gap: 1rem;
     max-width: 50rem;
+
 }
 
 .taskItem {
     display: flex;
     justify-content: space-between;
     width: calc(33% - 1rem);
-    min-width: 15.625rem;
+    width: 15.625rem;
     height: 8rem;
     background-color: var(--grey-500);
     margin: 0.75rem 0;
@@ -105,6 +106,27 @@
     color: var(--grey-100);
     font-size: 14px;
     box-sizing: border-box;
+}
+
+.isCompleted {
+    display: flex;
+    justify-content: space-between;
+    width: calc(33% - 1rem);
+    width: 15.625rem;
+    height: 8rem;
+    background-color: var(--grey-400);
+    margin: 0.75rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--grey-400);
+    color: var(--grey-100);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.isCompleted textarea {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .taskContentInput {
@@ -118,17 +140,64 @@
     border-radius: 8px;
     background-color: var(--grey-500);
     border: 1px solid var(--grey-300);
-    height: 60%;
     padding-left: 0.5rem;
+    padding-top: 0.5rem;
     margin-top: 0.5rem;
-    flex-wrap: wrap;
+    font-family: var(--font);
+    resize: none;
+    width: 9vw;
+    height: 7vh;
+    box-sizing: border-box;
 }
 
 .inputAndTrash {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     height: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.checkBox {
+    display: block;
+    cursor: pointer;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 2px var(--blue);
+}
+
+.checkBox div {
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--blue);
+    top: -1rem;
+    left: -1rem;
+    position: absolute;
+    transform: rotateZ(45deg);
+    z-index: 100;
+}
+
+.checkBox input[type=checkbox]:checked+div {
+    left: -0.5rem;
+    top: -0.5rem;
+}
+
+.checkBox input[type=checkbox] {
+    position: absolute;
+    left: 2rem;
+    visibility: hidden;
+}
+
+.transition {
+    transition: 300ms ease;
 }
 
 .deleteButton {

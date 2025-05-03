@@ -3,6 +3,7 @@
   --blue: #4EA8DE;
   --purple-dark: #5E60CE;
   --purple: #8284FA;
+  --gradient-purple: linear-gradient(90deg, #0C1C40 0%, #4441AD 100%);
   --grey-700: #0D0D0D;
   --grey-600: #1A1A1A;
   --grey-500: #262626;
